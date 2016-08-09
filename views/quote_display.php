@@ -1,6 +1,6 @@
-<h1>Quote Results for <b><?php $_SESSION["symbol"] ?></b></h1>
-<h2><?php $_SESSION["name"] ?><h2>
-<p><?php $_SESSION["price"] ?></p>
+<h1>Quote Results for <b><?= htmlspecialchars($_SESSION["symbol"]) ?></b></h1>
+<h2><?= htmlspecialchars($_SESSION["name"]) ?><h2>
+<p><?= htmlspecialchars($_SESSION["price"]) ?></p>
 <div>
-    or <a href="login.php">log in</a>
+    <p></p><a href="quote.php">Get another quote</a></p>
 </div>
