@@ -32,6 +32,10 @@
         // Unset the referenced value
         unset($stock);
         
+        // Query for cash available and save to session
+        $cash_available = CS50::query("SELECT * FROM users WHERE id = ?", $_SESSION["id"]);
+        $_SESSION["cash_available"] = $cash_available[0]["cash"];
+        
         // Render portfolio
         render("portfolio.php", ["title" => "Portfolio"]);
     }
