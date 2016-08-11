@@ -1,3 +1,5 @@
-<div>
-    <iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1&iv_load_policy=3&rel=0" width="420"></iframe>
+<h1>Portfolio for <b><?= $_SESSION["username"] ?></b></h1>
+
+<div class="row">
+    <div class="col-xs-12"><b><?= $_SESSION["portfolio"][0]["symbol"] ?></b> <?= $_SESSION["portfolio"][0]["shares"] ?> @ <?= $_SESSION["portfolio"][0]["purchase_price"] ?> = <?= $_SESSION["portfolio"][0]["shares"] * $_SESSION["portfolio"][0]["current_price"] ?></div>
 </div>

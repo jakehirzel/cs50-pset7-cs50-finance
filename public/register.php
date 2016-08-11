@@ -25,10 +25,12 @@
         // If valid, add new user
         else if (CS50::query("INSERT IGNORE INTO users (username, hash, cash) VALUES(?, ?, 10000.0000)", $_POST["username"], password_hash($_POST["password"], PASSWORD_DEFAULT)) != 0 ) {
             
-            // Query for id and save in session
-            $query_row = CS50::query("SELECT id FROM users WHERE username = ?", $_POST["username"]);
+            // Query for id and username and save in session
+            $query_row = CS50::query("SELECT * FROM users WHERE username = ?", $_POST["username"]);
             $id = $query_row[0]["id"];
+            $username = $query_row[0]["username"];
             $_SESSION["id"] = $id;
+            $_SESSION["username"] = $username;
             
             // Redirect to index.php
             redirect("index.php");

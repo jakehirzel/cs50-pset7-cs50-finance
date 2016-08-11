@@ -29,7 +29,7 @@
             // Store the values in $_SESSION
             $_SESSION["symbol"] = $stock["symbol"];
             $_SESSION["name"] = $stock["name"];
-            $_SESSION['price'] = $stock["price"];
+            $_SESSION["price"] = $stock["price"];
             
             // Render quote_display.php
             render("quote_display.php", ["title" => "Quote Results"]);
