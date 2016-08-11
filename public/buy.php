@@ -43,15 +43,23 @@
             // Store purchase value
             $purchase_value = $_SESSION["price"] * $_POST["quantity"];
             
-            // Add line to database
-            CS50::query("INSERT INTO portfolios (user_id, symbol, shares) VALUES(?, ?, ?) ON DUPLICATE KEY UPDATE shares = shares + VALUES(shares)", $_SESSION["id"], $_SESSION["symbol"], $_SESSION["quantity"]);
+            // Check for sufficient funds
+            if ($purchase_value > $_SESSION["cash_available"]) {
+                apologize("Insufficient funds.");
+            }
             
-            // Update cash available
-            CS50::query("UPDATE users SET cash = cash - ? WHERE id = ?", $purchase_value, $_SESSION["id"]);
-            
-            // Redirect to portfolio
-            redirect("index.php");
-            
+            else {
+                
+                // Add line to database
+                CS50::query("INSERT INTO portfolios (user_id, symbol, shares) VALUES(?, ?, ?) ON DUPLICATE KEY UPDATE shares = shares + VALUES(shares)", $_SESSION["id"], $_SESSION["symbol"], $_SESSION["quantity"]);
+                
+                // Update cash available
+                CS50::query("UPDATE users SET cash = cash - ? WHERE id = ?", $purchase_value, $_SESSION["id"]);
+                
+                // Redirect to portfolio
+                redirect("index.php");
+                
+            }
         }
     }
 ?>

@@ -1,7 +1,7 @@
 <h1>Sell</h1>
 
 <div class="row">
-    <div class="col-xs-12 form-group">
+    <div class="col-xs-12">
         <?php 
             foreach ($_SESSION["portfolio"] as $i => $stock) {
                 
