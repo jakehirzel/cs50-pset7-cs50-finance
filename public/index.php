@@ -22,7 +22,7 @@
                 apologize("Invalid stock symbol. Unable to refresh portfolio.");
             }
             
-            // Create current_price in session and assign return value of lookup
+            // Assign return value of lookup to current_price
             else {
                 $stock["current_price"] = lookup($stock["symbol"] );
             }
