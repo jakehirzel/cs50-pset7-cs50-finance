@@ -53,6 +53,9 @@
         // Update cash available
         CS50::query("UPDATE users SET cash = cash + ? WHERE id = ?", $sale_value, $_SESSION["id"]);
         
+        // Set confirmation message
+        $_SESSION["confirmation"] = floor($_SESSION["portfolio"][$portfolio_index]["shares"]) . " share(s) of " . $_SESSION["portfolio"][$portfolio_index]["symbol"] . " successfully sold.";
+        
         // Redirect to portfolio
         redirect("index.php");
         

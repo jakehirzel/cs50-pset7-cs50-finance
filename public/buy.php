@@ -56,6 +56,9 @@
                 // Update cash available
                 CS50::query("UPDATE users SET cash = cash - ? WHERE id = ?", $purchase_value, $_SESSION["id"]);
                 
+                // Set confirmation message
+                $_SESSION["confirmation"] = $_SESSION["quantity"] . " share(s) of " . $_SESSION["symbol"] . " successfully purchased.";
+                
                 // Redirect to portfolio
                 redirect("index.php");
                 
