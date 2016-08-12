@@ -4,7 +4,7 @@
     <div class="col-xs-12">
         <?php 
             foreach ($_SESSION["portfolio"] as $stock) {
-                print("<p><b>" . htmlspecialchars($stock["symbol"]) . "</b> " . $stock["shares"] . " @ $" . number_format($stock["current_price"], $decimals = 2, $dec_point = ".", $thousands_sep = ",") . " = $" . number_format($stock["shares"] * $stock["current_price"], $decimals = 2, $dec_point = ".", $thousands_sep = ",") . "</p>");
+                print("<p class = 'list_name'>" . $stock["name"] . "</p><p><b>" . htmlspecialchars($stock["symbol"]) . "</b> " . $stock["shares"] . " @ $" . number_format($stock["current_price"], $decimals = 2, $dec_point = ".", $thousands_sep = ",") . " = $" . number_format($stock["shares"] * $stock["current_price"], $decimals = 2, $dec_point = ".", $thousands_sep = ",") . "</p>");
             }
         ?>
     </div>

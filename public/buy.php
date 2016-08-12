@@ -25,7 +25,7 @@
             apologize("Please enter a non-negative, whole number quantity.");
         }
         
-        else if (preg_match("/^\d+$/", $_POST["quantity"] != 1)) {
+        else if (preg_match('/^\d+$/', $_POST["quantity"]) != 1) {
             apologize("Please enter a non-negative, whole number quantity.");
         }
         
@@ -55,16 +55,16 @@
             else {
                 
                 // Add line to database
-                CS50::query("INSERT INTO portfolios (user_id, symbol, shares) VALUES(?, ?, ?) ON DUPLICATE KEY UPDATE shares = shares + VALUES(shares)", $_SESSION["id"], $_SESSION["symbol"], $_SESSION["quantity"]);
+                CS50::query("INSERT INTO portfolios (user_id, symbol, name, shares) VALUES(?, ?, ?, ?) ON DUPLICATE KEY UPDATE shares = shares + VALUES(shares)", $_SESSION["id"], $_SESSION["symbol"], $_SESSION["name"], $_SESSION["quantity"]);
                 
                 // Update cash available
                 CS50::query("UPDATE users SET cash = cash - ? WHERE id = ?", $purchase_value, $_SESSION["id"]);
                 
                 // Log transaction in history
-                CS50::query("INSERT INTO history (user_id, type, symbol, shares, amount) VALUES(?, 'BUY', ?, ?, ?)", $_SESSION["id"], $_SESSION["symbol"], $_SESSION["quantity"], $purchase_value);
+                CS50::query("INSERT INTO history (user_id, type, symbol, name, shares, amount) VALUES(?, 'BUY', ?, ?, ?, ?)", $_SESSION["id"], $_SESSION["symbol"], $_SESSION["name"], $_SESSION["quantity"], $purchase_value);
                 
                 // Set confirmation message
-                $_SESSION["confirmation"] = $_SESSION["quantity"] . " share(s) of " . $_SESSION["symbol"] . " successfully purchased.";
+                $_SESSION["confirmation"] = $_SESSION["quantity"] . " share(s) of " . $_SESSION["name"] . " successfully purchased.";
                 
                 // Redirect to portfolio
                 redirect("index.php");

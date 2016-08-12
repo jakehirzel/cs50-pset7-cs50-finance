@@ -48,3 +48,17 @@ body {
     /* surround with whitespace */
     margin: 20px;
 }
+
+.list_name {
+    color: gray;
+    font-weight: 200;
+    font-style: italic;
+    margin-bottom: -1.25rem;
+}
+
+.timestamp {
+    color: gray;
+    font-weight: 200;
+    font-style: italic;
+    margin-right: 15px;
+}

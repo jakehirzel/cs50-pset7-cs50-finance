@@ -54,10 +54,10 @@
         CS50::query("UPDATE users SET cash = cash + ? WHERE id = ?", $sale_value, $_SESSION["id"]);
         
         // Log transaction in history
-        CS50::query("INSERT INTO history (user_id, type, symbol, shares, amount) VALUES(?, 'SELL', ?, ?, ?)", $_SESSION["id"], $_SESSION["portfolio"][$portfolio_index]["symbol"], $_SESSION["portfolio"][$portfolio_index]["shares"], $sale_value);
+        CS50::query("INSERT INTO history (user_id, type, symbol, name, shares, amount) VALUES(?, 'SELL', ?, ?, ?, ?)", $_SESSION["id"], $_SESSION["portfolio"][$portfolio_index]["symbol"], $_SESSION["portfolio"][$portfolio_index]["name"], $_SESSION["portfolio"][$portfolio_index]["shares"], $sale_value);
         
         // Set confirmation message
-        $_SESSION["confirmation"] = floor($_SESSION["portfolio"][$portfolio_index]["shares"]) . " share(s) of " . $_SESSION["portfolio"][$portfolio_index]["symbol"] . " successfully sold.";
+        $_SESSION["confirmation"] = floor($_SESSION["portfolio"][$portfolio_index]["shares"]) . " share(s) of " . $_SESSION["portfolio"][$portfolio_index]["name"] . " successfully sold.";
         
         // Redirect to portfolio
         redirect("index.php");
