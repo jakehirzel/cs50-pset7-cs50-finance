@@ -56,6 +56,9 @@
                 // Update cash available
                 CS50::query("UPDATE users SET cash = cash - ? WHERE id = ?", $purchase_value, $_SESSION["id"]);
                 
+                // Log transaction in history
+                CS50::query("INSERT INTO history (user_id, type, symbol, shares, amount) VALUES(?, 'BUY', ?, ?, ?)", $_SESSION["id"], $_SESSION["symbol"], $_SESSION["quantity"], $purchase_value);
+                
                 // Set confirmation message
                 $_SESSION["confirmation"] = $_SESSION["quantity"] . " share(s) of " . $_SESSION["symbol"] . " successfully purchased.";
                 
