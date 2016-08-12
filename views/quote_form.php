@@ -2,7 +2,7 @@
 <form action="quote.php" method="post">
     <fieldset>
         <div class="form-group">
-            <input autofocus class="form-control" name="symbol" placeholder="Enter a Stock Ticker" type="text"/>
+            <input autofocus class="form-control" name="symbol" placeholder="Stock Ticker" type="text"/>
         </div>
 
         <div class="form-group">

@@ -5,7 +5,7 @@
         <?php 
             foreach ($_SESSION["portfolio"] as $i => $stock) {
                 
-                print("<form action='sell.php' method='post'><p><b>" . htmlspecialchars($stock["symbol"]) . "</b> " . $stock["shares"] . " @ $" . number_format($stock["current_price"], $decimals = 2, $dec_point = ".", $thousands_sep = ",") . " = $" . number_format($stock["shares"] * $stock["current_price"], $decimals = 2, $dec_point = ".", $thousands_sep = ",") . " <input type='hidden' name='index' value='" . $i . "'><input type='hidden' name='id' value='" . $stock["id"] . "'><button class='btn btn-default' type='submit'>Sell</button></p></form>");
+                print("<form action='sell.php' method='post'><p><b>" . htmlspecialchars($stock["symbol"]) . "</b> " . $stock["shares"] . " @ $" . number_format($stock["current_price"], $decimals = 2, $dec_point = ".", $thousands_sep = ",") . " = $" . number_format($stock["shares"] * $stock["current_price"], $decimals = 2, $dec_point = ".", $thousands_sep = ",") . " <input type='hidden' name='index' value='" . $i . "'><input type='hidden' name='id' value='" . $stock["id"] . "'><button class='btn btn-default' type='submit'>Sell " . $stock["symbol"] . "</button></p></form>");
                 
             }
         ?>

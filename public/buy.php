@@ -25,6 +25,10 @@
             apologize("Please enter a non-negative, whole number quantity.");
         }
         
+        else if (preg_match("/^\d+$/", $_POST["quantity"] != 1)) {
+            apologize("Please enter a non-negative, whole number quantity.");
+        }
+        
         else if (lookup($_POST["symbol"]) == 0) {
             apologize("Invalid stock symbol.");
         }

@@ -6,7 +6,7 @@
             <input autofocus class="form-control" name="symbol" placeholder="Stock Ticker" type="text"/>
         </div>
         <div class="form-group">
-            <input autofocus class="form-control" name="quantity" placeholder="Quantity of Shares" type="number" min="1"/>
+            <input class="form-control" name="quantity" placeholder="Quantity of Shares" type="number" min="1"/>
         </div>
         <div class="form-group">
             <button class="btn btn-default" type="submit">
